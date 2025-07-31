@@ -1,0 +1,81 @@
+[gd_scene load_steps=6 format=3 uid="uid://bjbwpqrsikjts"]
+
+[ext_resource type="Script" uid="uid://cnbii3pm6dcc0" path="res://scenes/playertest.gd" id="1_pyvia"]
+[ext_resource type="PackedScene" uid="uid://d3oqhlq64g0uv" path="res://scenes/debug_display_thing.tscn" id="2_ge16w"]
+[ext_resource type="PackedScene" uid="uid://g156w3528kws" path="res://scenes/speedsplit_display.tscn" id="3_u6kb2"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_ge16w"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_u6kb2"]
+font_size = 26
+outline_size = 16
+outline_color = Color(0, 0, 0, 1)
+
+[node name="playertest" type="CharacterBody3D" groups=["Loaders", "Savers", "ScoreKeepers"]]
+script = ExtResource("1_pyvia")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+shape = SubResource("CapsuleShape3D_ge16w")
+
+[node name="Debug Display Thing" parent="." instance=ExtResource("2_ge16w")]
+
+[node name="Yaw" type="Marker3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.79682, 0)
+
+[node name="Pitch" type="Marker3D" parent="Yaw"]
+
+[node name="Roll" type="Marker3D" parent="Yaw/Pitch"]
+
+[node name="Camera3D" type="Camera3D" parent="Yaw/Pitch/Roll"]
+current = true
+fov = 110.0
+
+[node name="RayCast3D" type="RayCast3D" parent="Yaw/Pitch/Roll/Camera3D"]
+target_position = Vector3(0, 0, -1000)
+collide_with_areas = true
+collide_with_bodies = false
+
+[node name="Speedsplit Display" parent="." instance=ExtResource("3_u6kb2")]
+offset_left = 911.0
+offset_bottom = -265.0
+
+[node name="Crosshair" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Control" type="Control" parent="Crosshair"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Line2D" type="Line2D" parent="Crosshair/Control"]
+points = PackedVector2Array(-10, 0, 10, 0)
+width = 3.0
+
+[node name="Line2D2" type="Line2D" parent="Crosshair/Control"]
+rotation = -1.5708
+points = PackedVector2Array(-10, 0, 10, 0)
+width = 3.0
+
+[node name="ScoreLabel" type="Label" parent="."]
+anchors_preset = -1
+anchor_left = 0.03
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "11/17
+in time!"
+label_settings = SubResource("LabelSettings_u6kb2")
+vertical_alignment = 1
+metadata/_edit_use_anchors_ = true

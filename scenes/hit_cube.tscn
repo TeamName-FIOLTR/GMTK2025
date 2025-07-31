@@ -1,0 +1,29 @@
+[gd_scene load_steps=6 format=3 uid="uid://chl4ap2kno7nn"]
+
+[ext_resource type="Script" uid="uid://co77n0pqj8smn" path="res://scenes/hit_cube.gd" id="1_6ilaj"]
+[ext_resource type="Shader" uid="uid://rxbm8imtwj36" path="res://scenes/hit_cube.gdshader" id="1_ymlcx"]
+[ext_resource type="Script" uid="uid://cuau5ufx4fbtt" path="res://scenes/hitable_area.gd" id="2_86u20"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_86u20"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_6ilaj"]
+resource_local_to_scene = true
+render_priority = 0
+shader = ExtResource("1_ymlcx")
+shader_parameter/color = Color(0, 1, 0, 1)
+
+[node name="Hit Cube" type="Node3D" groups=["Loaders", "Savers"]]
+script = ExtResource("1_6ilaj")
+
+[node name="Area3D" type="Area3D" parent="."]
+transform = Transform3D(0.826869, 0.00685537, 0.562352, 0.509854, 0.412871, -0.75471, -0.237353, 0.910764, 0.337895, 0, 1, 0)
+script = ExtResource("2_86u20")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
+shape = SubResource("BoxShape3D_86u20")
+
+[node name="CSGBox3D" type="CSGBox3D" parent="Area3D"]
+material = SubResource("ShaderMaterial_6ilaj")
+
+[connection signal="hit" from="Area3D" to="." method="_on_area_3d_hit"]
+[connection signal="input_event" from="Area3D" to="." method="_on_area_3d_input_event"]

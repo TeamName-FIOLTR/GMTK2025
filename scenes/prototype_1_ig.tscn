@@ -1,0 +1,87 @@
+[gd_scene load_steps=10 format=3 uid="uid://vvki1cgvd12p"]
+
+[ext_resource type="Texture2D" uid="uid://cmqp17tg3n0g0" path="res://assets/debug_texture.png" id="1_jf2pi"]
+[ext_resource type="Shader" uid="uid://dhhtwll1pvt57" path="res://scenes/prototype_1_ig_floor.gdshader" id="2_d0vax"]
+[ext_resource type="PackedScene" uid="uid://bjbwpqrsikjts" path="res://scenes/playertest.tscn" id="2_finpw"]
+[ext_resource type="PackedScene" uid="uid://chl4ap2kno7nn" path="res://scenes/hit_cube.tscn" id="3_finpw"]
+[ext_resource type="Shader" uid="uid://c2qyv43h7w0rs" path="res://scenes/holographs thingy.gdshader" id="5_rp6k4"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_rp6k4"]
+render_priority = 0
+shader = ExtResource("2_d0vax")
+shader_parameter/textureee = ExtResource("1_jf2pi")
+
+[sub_resource type="Environment" id="Environment_d0vax"]
+glow_enabled = true
+glow_strength = 0.49
+glow_blend_mode = 1
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_5qo4q"]
+render_priority = 0
+shader = ExtResource("5_rp6k4")
+shader_parameter/holograph_scrren = ExtResource("1_jf2pi")
+
+[sub_resource type="QuadMesh" id="QuadMesh_rp6k4"]
+material = SubResource("ShaderMaterial_5qo4q")
+
+[node name="prototype1ig" type="Node3D"]
+
+[node name="CSGBox3D" type="CSGBox3D" parent="."]
+transform = Transform3D(20, 0, 0, 0, 1, 0, 0, 0, 20, 0, 0, 0)
+use_collision = true
+material = SubResource("ShaderMaterial_rp6k4")
+
+[node name="CSGBox3D2" type="CSGBox3D" parent="."]
+transform = Transform3D(-6.18172e-07, -0.707107, -14.1421, 20, -4.37114e-08, 0, -6.18172e-07, -0.707107, 14.1421, -0.0434628, 10, -4.65139)
+use_collision = true
+material = SubResource("ShaderMaterial_rp6k4")
+
+[node name="CSGBox3D3" type="CSGBox3D" parent="."]
+transform = Transform3D(-6.18172e-07, -0.707107, -14.1421, 20, -4.37114e-08, 0, -6.18172e-07, -0.707107, 14.1421, 0.159055, 10, 8.55734)
+use_collision = true
+material = SubResource("ShaderMaterial_rp6k4")
+
+[node name="playertest" parent="." instance=ExtResource("2_finpw")]
+transform = Transform3D(-0.731568, 0, -0.681769, 0, 1, 0, 0.681769, 0, -0.731568, -7.73143, 0, -8.70947)
+
+[node name="Hit Cube" parent="." instance=ExtResource("3_finpw")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.16449, 0.5, -4.79157)
+time_left = 2.0
+
+[node name="Hit Cube7" parent="." instance=ExtResource("3_finpw")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.22146, 0.5, -0.0916462)
+time_left = 3.0
+
+[node name="Hit Cube8" parent="." instance=ExtResource("3_finpw")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.9685, 0.5, 8.10388)
+time_left = 4.0
+
+[node name="Hit Cube9" parent="." instance=ExtResource("3_finpw")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.87886, 0.5, -7.43642)
+time_left = 1.0
+
+[node name="Hit Cube2" parent="." instance=ExtResource("3_finpw")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.2825, 0.5, 0.56963)
+time_left = 15.0
+
+[node name="Hit Cube4" parent="." instance=ExtResource("3_finpw")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.29221, 0.5, -6.44213)
+
+[node name="Hit Cube5" parent="." instance=ExtResource("3_finpw")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.524528, 0.5, -0.48964)
+time_left = 8.0
+
+[node name="Hit Cube6" parent="." instance=ExtResource("3_finpw")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.80627, 0.5, 7.88976)
+time_left = 3.0
+
+[node name="Hit Cube3" parent="." instance=ExtResource("3_finpw")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.53136, 0.5, 4.41958)
+time_left = 10.5
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_d0vax")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(-8.74228e-07, 0, -20, 0, 20, 0, 20, 0, -8.74228e-07, 10, 10.0734, 0)
+mesh = SubResource("QuadMesh_rp6k4")
