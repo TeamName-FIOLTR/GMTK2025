@@ -1,10 +1,10 @@
 [gd_scene load_steps=10 format=3 uid="uid://vvki1cgvd12p"]
 
 [ext_resource type="Texture2D" uid="uid://cmqp17tg3n0g0" path="res://assets/debug_texture.png" id="1_jf2pi"]
-[ext_resource type="Shader" uid="uid://dhhtwll1pvt57" path="res://scenes/prototype_1_ig_floor.gdshader" id="2_d0vax"]
-[ext_resource type="PackedScene" uid="uid://bjbwpqrsikjts" path="res://scenes/playertest.tscn" id="2_finpw"]
-[ext_resource type="PackedScene" uid="uid://chl4ap2kno7nn" path="res://scenes/hit_cube.tscn" id="3_finpw"]
-[ext_resource type="Shader" uid="uid://c2qyv43h7w0rs" path="res://scenes/holographs thingy.gdshader" id="5_rp6k4"]
+[ext_resource type="Shader" uid="uid://dhhtwll1pvt57" path="res://scenes/prototype/prototype_1_ig_floor.gdshader" id="2_d0vax"]
+[ext_resource type="PackedScene" uid="uid://bjbwpqrsikjts" path="res://scenes/prototype/playertest.tscn" id="2_finpw"]
+[ext_resource type="PackedScene" uid="uid://chl4ap2kno7nn" path="res://scenes/prototype/hit_cube.tscn" id="3_finpw"]
+[ext_resource type="Shader" uid="uid://c2qyv43h7w0rs" path="res://scenes/prototype/holographs thingy.gdshader" id="5_rp6k4"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_rp6k4"]
 render_priority = 0

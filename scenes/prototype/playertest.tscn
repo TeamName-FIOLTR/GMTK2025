@@ -1,8 +1,8 @@
 [gd_scene load_steps=6 format=3 uid="uid://bjbwpqrsikjts"]
 
-[ext_resource type="Script" uid="uid://cnbii3pm6dcc0" path="res://scenes/playertest.gd" id="1_pyvia"]
-[ext_resource type="PackedScene" uid="uid://d3oqhlq64g0uv" path="res://scenes/debug_display_thing.tscn" id="2_ge16w"]
-[ext_resource type="PackedScene" uid="uid://g156w3528kws" path="res://scenes/speedsplit_display.tscn" id="3_u6kb2"]
+[ext_resource type="Script" uid="uid://cnbii3pm6dcc0" path="res://scenes/prototype/playertest.gd" id="1_pyvia"]
+[ext_resource type="PackedScene" uid="uid://d3oqhlq64g0uv" path="res://scenes/prototype/debug_display_thing.tscn" id="2_ge16w"]
+[ext_resource type="PackedScene" uid="uid://g156w3528kws" path="res://scenes/prototype/speedsplit_display.tscn" id="3_u6kb2"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_ge16w"]
 

@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://g156w3528kws"]
 
-[ext_resource type="Script" uid="uid://cbbltsyl50qbs" path="res://scenes/speedsplit_display.gd" id="1_0w8gc"]
+[ext_resource type="Script" uid="uid://cbbltsyl50qbs" path="res://scenes/prototype/speedsplit_display.gd" id="1_0w8gc"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_0w8gc"]
 font_size = 76

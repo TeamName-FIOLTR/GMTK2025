@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://d3oqhlq64g0uv"]
 
-[ext_resource type="Script" uid="uid://cwfxhd7keftv" path="res://scenes/debug_display_thing.gd" id="1_wy56a"]
+[ext_resource type="Script" uid="uid://cwfxhd7keftv" path="res://scenes/prototype/debug_display_thing.gd" id="1_wy56a"]
 
 [node name="Debug Display Thing" type="Control" groups=["DebugDataRecievers"]]
 layout_mode = 3

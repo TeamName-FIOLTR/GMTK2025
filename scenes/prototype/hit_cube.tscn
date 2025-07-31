@@ -1,8 +1,8 @@
 [gd_scene load_steps=6 format=3 uid="uid://chl4ap2kno7nn"]
 
-[ext_resource type="Script" uid="uid://co77n0pqj8smn" path="res://scenes/hit_cube.gd" id="1_6ilaj"]
-[ext_resource type="Shader" uid="uid://rxbm8imtwj36" path="res://scenes/hit_cube.gdshader" id="1_ymlcx"]
-[ext_resource type="Script" uid="uid://cuau5ufx4fbtt" path="res://scenes/hitable_area.gd" id="2_86u20"]
+[ext_resource type="Script" uid="uid://co77n0pqj8smn" path="res://scenes/prototype/hit_cube.gd" id="1_6ilaj"]
+[ext_resource type="Shader" uid="uid://rxbm8imtwj36" path="res://scenes/prototype/hit_cube.gdshader" id="1_ymlcx"]
+[ext_resource type="Script" uid="uid://cuau5ufx4fbtt" path="res://scenes/prototype/hitable_area.gd" id="2_86u20"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_86u20"]
 
