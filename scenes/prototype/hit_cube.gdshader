@@ -42,11 +42,11 @@ void fragment() {
 	float thing0 = get_thing_ig(pos);
 	float thing1 = get_thing_ig(pos2);
 	float thing2 = get_thing_ig(pos3);
-	
+
 	//ALBEDO = vec3(thing0);
 	//ALBEDO = vec3(thing1);
 	//ALBEDO = vec3(thing2);
-	
+
 	ALBEDO = color*max(0.0,thing0+thing1+thing2);
 	//ALBEDO = vec3(thing0+thing1+thing2);
 	//ALBEDO = vec3(get_thing_ig(pos)+get_thing_ig(pos2)+get_thing_ig(pos3));

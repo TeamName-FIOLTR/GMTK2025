@@ -10,7 +10,7 @@ config_version=5
 
 [application]
 
-config/name="Smol-Jam 2023 - 2024"
+config/name="GMTK2025-Loop"
 run/main_scene="uid://vvki1cgvd12p"
 config/features=PackedStringArray("4.4", "Forward Plus")
 config/icon="res://icon.svg"

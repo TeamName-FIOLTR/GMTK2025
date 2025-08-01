@@ -1,0 +1,28 @@
+[gd_scene load_steps=3 format=3 uid="uid://cjceeaabehf1i"]
+
+[ext_resource type="Script" uid="uid://bjxic2wagj2yx" path="res://scenes/things/player.gd" id="1_mnuyp"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_ma3r5"]
+
+[node name="Player" type="CharacterBody3D"]
+script = ExtResource("1_mnuyp")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+shape = SubResource("CapsuleShape3D_ma3r5")
+
+[node name="Yaw" type="Marker3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.79682, 0)
+
+[node name="Pitch" type="Marker3D" parent="Yaw"]
+
+[node name="Roll" type="Marker3D" parent="Yaw/Pitch"]
+
+[node name="Camera3D" type="Camera3D" parent="Yaw/Pitch/Roll"]
+current = true
+fov = 110.0
+
+[node name="RayCast3D" type="RayCast3D" parent="Yaw/Pitch/Roll/Camera3D"]
+target_position = Vector3(0, 0, -1000)
+collide_with_areas = true
+collide_with_bodies = false

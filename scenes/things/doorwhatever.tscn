@@ -1,0 +1,40 @@
+[gd_scene load_steps=8 format=3 uid="uid://epl3ixu78lxh"]
+
+[ext_resource type="Script" uid="uid://qpf6f2kgb5tq" path="res://scenes/things/doorwhatever.gd" id="1_k1oqr"]
+[ext_resource type="Shader" uid="uid://bqh6i7egj7vh" path="res://scenes/things/doorwhatever.gdshader" id="2_3p1a6"]
+[ext_resource type="Shader" uid="uid://10pb63capa55" path="res://scenes/things/doorwhatevertext.gdshader" id="3_87qhw"]
+
+[sub_resource type="QuadMesh" id="QuadMesh_k1oqr"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_87qhw"]
+render_priority = 0
+shader = ExtResource("2_3p1a6")
+shader_parameter/size = Vector2(1.8029, 2.4752)
+shader_parameter/locked = false
+
+[sub_resource type="TextMesh" id="TextMesh_3p1a6"]
+resource_local_to_scene = true
+text = "0/12"
+font_size = 40
+depth = 0.003
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_efpxt"]
+resource_local_to_scene = true
+render_priority = 0
+shader = ExtResource("3_87qhw")
+shader_parameter/locked = true
+
+[node name="Doorwhatever" type="Node3D"]
+script = ExtResource("1_k1oqr")
+size = Vector2(2.543, 2.725)
+locked = true
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(2.543, 0, 0, 0, 2.725, 0, 0, 0, 1, 0, 1.3625, 0)
+mesh = SubResource("QuadMesh_k1oqr")
+surface_material_override/0 = SubResource("ShaderMaterial_87qhw")
+
+[node name="TextMeshThingy" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.3625, 0)
+mesh = SubResource("TextMesh_3p1a6")
+surface_material_override/0 = SubResource("ShaderMaterial_efpxt")
