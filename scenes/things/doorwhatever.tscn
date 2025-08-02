@@ -26,6 +26,7 @@ shader = ExtResource("3_87qhw")
 shader_parameter/locked = false
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_87qhw"]
+resource_local_to_scene = true
 size = Vector3(8.9794, 2.4823, 0.1)
 
 [node name="Doorwhatever" type="Node3D" groups=["Loaders", "Savers"]]
