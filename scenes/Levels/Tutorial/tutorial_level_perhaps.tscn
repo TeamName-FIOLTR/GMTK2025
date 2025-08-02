@@ -40,16 +40,58 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.715905, 0.501474, 0.8456)
 [node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
 shape = SubResource("ConcavePolygonShape3D_3dsw7")
 
-[node name="Doorwhatever" parent="." node_paths=PackedStringArray("hit_cubes") instance=ExtResource("3_pkbft")]
+[node name="Doorwhatever" parent="." node_paths=PackedStringArray("next_door", "hit_cubes") instance=ExtResource("3_pkbft")]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 4.56852, 0, 0)
 size = Vector2(1.8029, 2.4752)
-locked = false
-hit_cubes = [NodePath("../Hit Cube"), NodePath("../Hit Cube2")]
+active = true
+commit_split_on_unlock = true
+next_door = NodePath("../Doorwhatever2")
+hit_cubes = [NodePath("../Hit Cube")]
 
 [node name="Hit Cube" parent="." instance=ExtResource("4_4k1er")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.3462, 0.00366938, -0.281681)
 
-[node name="Hit Cube2" parent="." instance=ExtResource("4_4k1er")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.33476, 0.00366962, 1.94636)
+[node name="Doorwhatever2" parent="." node_paths=PackedStringArray("hit_cubes") instance=ExtResource("3_pkbft")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 16.0211, 2.4752, 0)
+size = Vector2(8.9794, 2.4823)
+locked = false
+active = false
+commit_split_on_unlock = true
+hit_cubes = [NodePath("Node3D/Hit Cube2"), NodePath("Node3D/Hit Cube3"), NodePath("Node3D/Hit Cube4"), NodePath("Node3D/Hit Cube5")]
+
+[node name="Node3D" type="Node3D" parent="Doorwhatever2"]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 7.00304e-07, -2.4752, 16.0211)
+
+[node name="Hit Cube2" parent="Doorwhatever2/Node3D" instance=ExtResource("4_4k1er")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.72028, 0, 2.85688)
+
+[node name="Hit Cube3" parent="Doorwhatever2/Node3D" instance=ExtResource("4_4k1er")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11.0857, 0.9552, -3.26383)
+
+[node name="Hit Cube4" parent="Doorwhatever2/Node3D" instance=ExtResource("4_4k1er")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13.0297, 2.17891, 0.27128)
+
+[node name="Hit Cube5" parent="Doorwhatever2/Node3D" instance=ExtResource("4_4k1er")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14.1021, 4.76837e-07, -3.60618)
+
+[node name="CSGBox3D" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11.2409, 0.2276, -3.24542)
+use_collision = true
+size = Vector3(1, 1.4552, 1)
+
+[node name="CSGBox3D2" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.4877, 0.70808, -1.7221)
+use_collision = true
+size = Vector3(1, 1.4552, 1)
+
+[node name="CSGBox3D3" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.8996, 1.07969, 0.203103)
+use_collision = true
+size = Vector3(1, 2.19843, 1)
+
+[node name="CSGBox3D4" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14.9155, 1.07969, 0.166574)
+use_collision = true
+size = Vector3(1, 2.19843, 1)
 
 [editable path="tutorial level maybe ig"]

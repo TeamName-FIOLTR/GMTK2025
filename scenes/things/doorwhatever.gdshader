@@ -1,6 +1,6 @@
 shader_type spatial;
 
-render_mode blend_add;
+render_mode blend_mix;
 render_mode cull_disabled;
 render_mode unshaded;
 uniform vec2 size;
@@ -19,8 +19,9 @@ void fragment() {
 	//if(!locked){boarder = boarder_x<0.1;}
 	vec3 color = locked?vec3(1,0,0):vec3(0,1,0);
 	//ALBEDO = vec3(0);
-	vec3 final_color = color*(boarder?1.0:(locked?thing:(thing*max(mix(-1.0,0.5,abs(1.0-2.0*UV.x)),0.0)))); // screq it, nested tertiaries
+	vec3 final_color = color; // screq it, nested tertiaries
 	ALBEDO = final_color;
+	ALPHA = (boarder?1.0:(locked?thing:(thing*max(mix(-1.0,0.5,abs(1.0-2.0*UV.x)),0.0))));
 	// Called for every pixel the material is visible on.
 }
 

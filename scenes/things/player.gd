@@ -69,6 +69,7 @@ func _physics_process(delta: float) -> void:
 		Input.mouse_mode = Input.MOUSE_MODE_VISIBLE if Input.mouse_mode == Input.MOUSE_MODE_CAPTURED else Input.MOUSE_MODE_CAPTURED
 	
 
+
 func apply_camera_rotation():
 	$Yaw.rotation_degrees.y = camera_rotation.x
 	$Yaw/Pitch.rotation_degrees.x = camera_rotation.y
@@ -80,5 +81,22 @@ func _input(event: InputEvent) -> void:
 		camera_rotation.y -= event.relative.y/7.0
 		
 		apply_camera_rotation()
+	if event.is_action_pressed("load_state"):
+		GlobalSplitsManager.load_latest_split()
+
 func apply_jump():
 	velocity.y = JUMP_VELOCITY
+
+func save_state(save_data : Dictionary):
+	save_data["Player"] = {
+		"Velocity": velocity, # these still get saves so that the replay format in the future can actually use it properly
+		"Speed": SPEED, # these still get saves so that the replay format in the future can actually use it properly
+		"Position": position,
+		"CameraRotation":camera_rotation,
+	}
+
+func load_state(load_data : Dictionary):
+	if "Player" in load_data:
+		position = load_data["Player"]["Position"]
+		camera_rotation = load_data["Player"]["CameraRotation"]
+		apply_camera_rotation()

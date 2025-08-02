@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://dg3l0cwvnpvp5"]
+
+[ext_resource type="Script" uid="uid://ccb0uvswx6ncl" path="res://scenes/things/splits_manager.gd" id="1_oe504"]
+
+[node name="SplitsManager" type="Node" groups=["Loaders", "Savers"]]
+script = ExtResource("1_oe504")

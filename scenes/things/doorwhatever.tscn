@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://epl3ixu78lxh"]
+[gd_scene load_steps=9 format=3 uid="uid://epl3ixu78lxh"]
 
 [ext_resource type="Script" uid="uid://qpf6f2kgb5tq" path="res://scenes/things/doorwhatever.gd" id="1_k1oqr"]
 [ext_resource type="Shader" uid="uid://bqh6i7egj7vh" path="res://scenes/things/doorwhatever.gdshader" id="2_3p1a6"]
@@ -7,14 +7,15 @@
 [sub_resource type="QuadMesh" id="QuadMesh_k1oqr"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_87qhw"]
+resource_local_to_scene = true
 render_priority = 0
 shader = ExtResource("2_3p1a6")
-shader_parameter/size = Vector2(1.8029, 2.4752)
+shader_parameter/size = Vector2(2.528, 2.725)
 shader_parameter/locked = false
 
 [sub_resource type="TextMesh" id="TextMesh_3p1a6"]
 resource_local_to_scene = true
-text = "0/12"
+text = "0/0"
 font_size = 40
 depth = 0.003
 
@@ -22,19 +23,28 @@ depth = 0.003
 resource_local_to_scene = true
 render_priority = 0
 shader = ExtResource("3_87qhw")
-shader_parameter/locked = true
+shader_parameter/locked = false
 
-[node name="Doorwhatever" type="Node3D"]
+[sub_resource type="BoxShape3D" id="BoxShape3D_87qhw"]
+size = Vector3(2.528, 2.725, 0.1)
+
+[node name="Doorwhatever" type="Node3D" groups=["Loaders", "Savers"]]
 script = ExtResource("1_k1oqr")
-size = Vector2(2.543, 2.725)
-locked = true
+size = Vector2(2.528, 2.725)
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
-transform = Transform3D(2.543, 0, 0, 0, 2.725, 0, 0, 0, 1, 0, 1.3625, 0)
+transform = Transform3D(2.528, 0, 0, 0, 2.725, 0, 0, 0, 1, 0, 1.3625, 0)
 mesh = SubResource("QuadMesh_k1oqr")
 surface_material_override/0 = SubResource("ShaderMaterial_87qhw")
 
 [node name="TextMeshThingy" type="MeshInstance3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.3625, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.525, 0.0321152)
 mesh = SubResource("TextMesh_3p1a6")
 surface_material_override/0 = SubResource("ShaderMaterial_efpxt")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="."]
+process_mode = 4
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.3625, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
+shape = SubResource("BoxShape3D_87qhw")

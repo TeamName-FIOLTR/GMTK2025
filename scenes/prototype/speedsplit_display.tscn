@@ -1,9 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://g156w3528kws"]
 
 [ext_resource type="Script" uid="uid://cbbltsyl50qbs" path="res://scenes/prototype/speedsplit_display.gd" id="1_0w8gc"]
-
-[sub_resource type="LabelSettings" id="LabelSettings_0w8gc"]
-font_size = 76
+[ext_resource type="FontFile" uid="uid://b7y17d0nh3v6l" path="res://assets/fonts/Timer.ttf" id="2_85ffo"]
 
 [node name="Speedsplit Display" type="Control" groups=["Loaders", "Savers"]]
 layout_mode = 3
@@ -30,16 +28,21 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="Splits Label" type="Label" parent="VBoxContainer"]
+[node name="Splits Label" type="RichTextLabel" parent="VBoxContainer"]
 layout_mode = 2
-text = "0:30.3
-1:20.8
-1:57.7
-2:51.1"
+size_flags_vertical = 3
+theme_override_fonts/normal_font = ExtResource("2_85ffo")
+bbcode_enabled = true
 horizontal_alignment = 2
 
-[node name="Current Time Label" type="Label" parent="VBoxContainer"]
+[node name="Current Time Label" type="RichTextLabel" parent="VBoxContainer"]
+modulate = Color(0, 1, 0, 1)
 layout_mode = 2
-text = "3:02.2"
-label_settings = SubResource("LabelSettings_0w8gc")
+size_flags_vertical = 3
+theme_override_fonts/normal_font = ExtResource("2_85ffo")
+theme_override_fonts/bold_font = ExtResource("2_85ffo")
+theme_override_font_sizes/normal_font_size = 36
+theme_override_font_sizes/bold_font_size = 66
+bbcode_enabled = true
+text = "[b]3:02[/b].02"
 horizontal_alignment = 2

@@ -2,6 +2,7 @@ extends Node3D
 class_name HitCube
 
 enum HitCubeState{
+	PAUSED,
 	IDLE,
 	EXPIRED,
 	HIT
@@ -20,7 +21,8 @@ func _ready() -> void:
 	pass # Replace with function body.
 
 func _physics_process(delta: float) -> void:
-	time_left -= delta
+	if state != HitCubeState.PAUSED:
+		time_left -= delta
 	update_cube_state()
 
 func update_cube_state():
@@ -28,6 +30,7 @@ func update_cube_state():
 		state = HitCubeState.EXPIRED if time_left <= 0.0 else HitCubeState.IDLE
 	var color = Color.RED
 	match state:
+		HitCubeState.PAUSED: color = Color.YELLOW
 		HitCubeState.IDLE: color = Color.GREEN
 		HitCubeState.EXPIRED: color = Color.RED
 		HitCubeState.HIT: color = Color.CYAN
@@ -37,21 +40,23 @@ func update_cube_state():
 func _process(delta: float) -> void:
 	pass
 
-func save(save_data : Dictionary):
+func save_state(save_data : Dictionary):
 	var id = get_instance_id()
 	var id_name = "HitCube%s"%id
 	save_data[id_name] = {
 		"TimeLeft": time_left,
-		"WasHit": state == HitCubeState.HIT
+		"WasHit": state == HitCubeState.HIT,
+		"IsPaused": state == HitCubeState.PAUSED
 	}
 	pass
 
-func lOdE(load_data : Dictionary):
+func load_state(load_data : Dictionary):
 	var id = get_instance_id()
 	var id_name = "HitCube%s"%id
 	if id_name in load_data:
 		time_left = load_data[id_name]["TimeLeft"]
 		if load_data[id_name]["WasHit"]: state = HitCubeState.HIT
+		elif load_data[id_name]["IsPaused"]: state = HitCubeState.PAUSED
 		else: state = HitCubeState.IDLE
 		update_cube_state()
 

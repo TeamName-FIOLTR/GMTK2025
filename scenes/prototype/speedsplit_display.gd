@@ -1,51 +1,53 @@
 extends Control
 
-var current_sub_seconds : float = 0.0
-var current_seconds : int = 0
-var splits : PackedVector2Array
+#class SplitLabel extends Control:
+	#var time_label : Label
+	#var title_label : Label
+	#
+
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	RenderingServer.frame_pre_draw.connect(_on_frame_draw_pre)
+	
 	pass # Replace with function body.
 
 func _physics_process(delta: float) -> void:
-	current_sub_seconds += delta
-	current_seconds += floori(current_sub_seconds)
-	#current_sub_seconds = current_sub_seconds%1.0
-	current_sub_seconds = fposmod(current_sub_seconds,1.0)
-	#var lol = 101
+	pass
+
+func _on_frame_draw_pre():
+	#update_labels()
+	pass
 
 func update_labels():
+	var splits : PackedFloat64Array = GlobalSplitsManager.get_splits()
 	var splits_str : String
 	var rendered_splits = splits.slice(splits.size()-10)
 	for split in rendered_splits:
-		var split_seconds = int(split.x)
-		var split_sub_seconds = split.y
-		splits_str += "\n"+format_time_string(split_seconds,split_sub_seconds)
+		splits_str += "\n"+GlobalSplitsManager.format_time(split)
 		#splits_str += "\n%02d"%(split_seconds/60)+":%02d"%(split_seconds%60)+".%0.2f"%split_sub_seconds
 	$"VBoxContainer/Splits Label".text = splits_str
-	$"VBoxContainer/Current Time Label".text = format_time_string(current_seconds,current_sub_seconds)
+	var time_string : String = GlobalSplitsManager.format_time(GlobalSplitsManager.current_split_time,3)
+	var time_string_splits = time_string.split(".")
+	var fancy_time_string = "[b]"+time_string_splits[0]+"[/b]."+time_string_splits[1]
+	$"VBoxContainer/Current Time Label".text = fancy_time_string
+	
+	queue_redraw()
+	#$"VBoxContainer/Current Time Label".text = GlobalSplitsManager.format_time(GlobalSplitsManager.current_split_time,3)
+	#if $"VBoxContainer/Current Time Label".text.length() > 8:
+		#print($"VBoxContainer/Current Time Label".text)
 	#$"VBoxContainer/Current Time Label".text = "\n%02d"%(current_seconds/60)+":%02d"%(current_seconds%60)+".%0.2f"%current_sub_seconds
-
-func format_time_string(seconds, sub_seconds):
-	return "%02d:"%(seconds/60)+"%02d."%seconds+("%0.2f"%sub_seconds).split(".")[1]
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	update_labels()
 	pass
 
+func _draw() -> void:
+	draw_string($"VBoxContainer/Splits Label".get_theme_font("normal_font"),$"VBoxContainer/Splits Label".position-Vector2(0,-30),"test")
+	pass
 
-func save(save_data : Dictionary):
-	var current_time = Vector2(current_seconds,current_sub_seconds)
-	splits.push_back(current_time)
-	save_data["SplitsDisplay"] = {
-		"Splits": splits,
-		"CurrentTime": current_time
-	}
+func save_state(save_data : Dictionary):
+	pass
 
-func lOdE(load_data: Dictionary):
-	if "SplitsDisplay" in load_data:
-		splits = load_data["SplitsDisplay"]["Splits"]
-		var current_time = load_data["SplitsDisplay"]["CurrentTime"]
-		current_seconds = current_time.x
-		current_sub_seconds = current_time.y
+func load_state(load_data: Dictionary):
+	pass

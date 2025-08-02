@@ -1,10 +1,18 @@
-[gd_scene load_steps=3 format=3 uid="uid://cjceeaabehf1i"]
+[gd_scene load_steps=7 format=3 uid="uid://cjceeaabehf1i"]
 
 [ext_resource type="Script" uid="uid://bjxic2wagj2yx" path="res://scenes/things/player.gd" id="1_mnuyp"]
+[ext_resource type="PackedScene" uid="uid://g156w3528kws" path="res://scenes/prototype/speedsplit_display.tscn" id="2_ebmdi"]
+[ext_resource type="Shader" uid="uid://xshrwp25hq82" path="res://scenes/things/player_crosshair.gdshader" id="3_vjtw4"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_ma3r5"]
 
-[node name="Player" type="CharacterBody3D"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_vjtw4"]
+shader = ExtResource("3_vjtw4")
+
+[sub_resource type="QuadMesh" id="QuadMesh_ra4iq"]
+size = Vector2(50, 50)
+
+[node name="Player" type="CharacterBody3D" groups=["Loaders", "Savers"]]
 script = ExtResource("1_mnuyp")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
@@ -26,3 +34,34 @@ fov = 110.0
 target_position = Vector3(0, 0, -1000)
 collide_with_areas = true
 collide_with_bodies = false
+
+[node name="Speedsplit Display" parent="." instance=ExtResource("2_ebmdi")]
+offset_left = 1017.0
+offset_bottom = -453.0
+
+[node name="Crosshair" type="Control" parent="."]
+material = SubResource("ShaderMaterial_vjtw4")
+layout_mode = 3
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_vertical = 4
+
+[node name="Line2D" type="Line2D" parent="Crosshair"]
+use_parent_material = true
+points = PackedVector2Array(-10, 0, 10, 0)
+width = 2.0
+
+[node name="Line2D2" type="Line2D" parent="Crosshair"]
+use_parent_material = true
+rotation = -1.57079
+points = PackedVector2Array(-10, 0, 10, 0)
+width = 2.0
+
+[node name="MeshInstance2D" type="MeshInstance2D" parent="Crosshair"]
+visible = false
+mesh = SubResource("QuadMesh_ra4iq")
