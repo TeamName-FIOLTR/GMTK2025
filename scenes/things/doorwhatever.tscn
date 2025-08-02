@@ -26,7 +26,7 @@ shader = ExtResource("3_87qhw")
 shader_parameter/locked = false
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_87qhw"]
-size = Vector3(2.528, 2.725, 0.1)
+size = Vector3(8.9794, 2.4823, 0.1)
 
 [node name="Doorwhatever" type="Node3D" groups=["Loaders", "Savers"]]
 script = ExtResource("1_k1oqr")

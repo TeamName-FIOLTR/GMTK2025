@@ -43,8 +43,6 @@ shape = SubResource("ConcavePolygonShape3D_3dsw7")
 [node name="Doorwhatever" parent="." node_paths=PackedStringArray("next_door", "hit_cubes") instance=ExtResource("3_pkbft")]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 4.56852, 0, 0)
 size = Vector2(1.8029, 2.4752)
-active = true
-commit_split_on_unlock = true
 next_door = NodePath("../Doorwhatever2")
 hit_cubes = [NodePath("../Hit Cube")]
 
@@ -54,9 +52,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.3462, 0.00366938, -0.28168
 [node name="Doorwhatever2" parent="." node_paths=PackedStringArray("hit_cubes") instance=ExtResource("3_pkbft")]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 16.0211, 2.4752, 0)
 size = Vector2(8.9794, 2.4823)
-locked = false
 active = false
-commit_split_on_unlock = true
 hit_cubes = [NodePath("Node3D/Hit Cube2"), NodePath("Node3D/Hit Cube3"), NodePath("Node3D/Hit Cube4"), NodePath("Node3D/Hit Cube5")]
 
 [node name="Node3D" type="Node3D" parent="Doorwhatever2"]
