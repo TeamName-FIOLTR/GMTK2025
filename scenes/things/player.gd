@@ -4,6 +4,9 @@ extends CharacterBody3D
 var SPEED = 5.0
 
 var MIN_SPEED = 5.0
+
+@export var SPEED_DECAY_FACTOR : float = 0.5
+
 const JUMP_VELOCITY = 4.5
 var coyote_time = 50 # Lenient Jump Time for Players in Milliseconds
 var last_collision_ms = 0 # bruh i just added a semicolon again burh
@@ -44,7 +47,8 @@ func _physics_process(delta: float) -> void:
 	else:
 		velocity.x = move_toward(velocity.x, 0, SPEED)
 		velocity.z = move_toward(velocity.z, 0, SPEED)
-		SPEED += -1.0*delta
+		SPEED = lerp(SPEED, MIN_SPEED, pow(SPEED_DECAY_FACTOR,delta)) 
+		SPEED += -5.0*delta
 		SPEED = max(SPEED,MIN_SPEED)
 	var last_collisions = get_last_slide_collision()
 	move_and_slide()
