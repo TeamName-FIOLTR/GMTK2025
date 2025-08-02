@@ -1,0 +1,31 @@
+[gd_scene load_steps=7 format=3 uid="uid://c4i5oyke602dk"]
+
+[ext_resource type="PackedScene" uid="uid://dw5qewfrnktt5" path="res://assets/models/triangle.glb" id="1_kdg7i"]
+[ext_resource type="Script" uid="uid://l14huij8k435" path="res://scenes/things/hit_triangle/hit_triangle.gd" id="1_rv4kw"]
+[ext_resource type="Shader" uid="uid://rxbm8imtwj36" path="res://scenes/prototype/hit_cube.gdshader" id="2_jodca"]
+[ext_resource type="Script" uid="uid://cuau5ufx4fbtt" path="res://scenes/prototype/hitable_area.gd" id="4_m7t1x"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_7s1gs"]
+render_priority = 0
+shader = ExtResource("2_jodca")
+shader_parameter/color = Color(0, 1, 1, 1)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_umvf4"]
+size = Vector3(2.03418, 1.37199, 2.07985)
+
+[node name="hit_triangle" type="Node3D"]
+script = ExtResource("1_rv4kw")
+
+[node name="triangleMesh" parent="." instance=ExtResource("1_kdg7i")]
+
+[node name="Cube" parent="triangleMesh" index="0"]
+surface_material_override/0 = SubResource("ShaderMaterial_7s1gs")
+
+[node name="Area3D" type="Area3D" parent="."]
+script = ExtResource("4_m7t1x")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0216932, 0.471901, 0.0143661)
+shape = SubResource("BoxShape3D_umvf4")
+
+[editable path="triangleMesh"]
