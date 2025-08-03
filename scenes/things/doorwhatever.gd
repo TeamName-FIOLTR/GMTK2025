@@ -24,7 +24,7 @@ var can_play : bool = true #hack to make sound work under time limit
 			$AudioStreamPlayer3D.play()
 			can_play = false
 			pass
-		emit_signal("locked_changed",locked)
+		emit_signal("locked_changed")
 var lets_commit : bool = false
 signal active_changed
 @export var active : bool = true:
