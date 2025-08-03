@@ -1,0 +1,22 @@
+[gd_scene load_steps=5 format=3 uid="uid://b8ao2e3qwbrvs"]
+
+[ext_resource type="Shader" uid="uid://rxbm8imtwj36" path="res://scenes/prototype/hit_cube.gdshader" id="1_shqxh"]
+[ext_resource type="Script" uid="uid://dgmllwtvfwmv" path="res://scenes/things/level loader/level_loader.gd" id="1_u3yf2"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_u3yf2"]
+render_priority = 0
+shader = ExtResource("1_shqxh")
+shader_parameter/color = Color(0.780831, 0.893036, 0, 1)
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_shqxh"]
+
+[node name="level loader sun" type="Node3D"]
+script = ExtResource("1_u3yf2")
+
+[node name="CSGSphere3D" type="CSGSphere3D" parent="."]
+material = SubResource("ShaderMaterial_u3yf2")
+
+[node name="Area3D" type="Area3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
+shape = SubResource("SphereShape3D_shqxh")

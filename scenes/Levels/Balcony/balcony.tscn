@@ -7,45 +7,6 @@
 [ext_resource type="PackedScene" uid="uid://epl3ixu78lxh" path="res://scenes/things/doorwhatever.tscn" id="4_oox3t"]
 [ext_resource type="Script" uid="uid://bbdlp77odm357" path="res://scenes/Levels/Balcony/path_indicator.gd" id="5_5w7df"]
 
-[sub_resource type="Animation" id="Animation_1xiko"]
-resource_name = "path_indicator"
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("hits/hit_triangle12:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.38, 1),
-"transitions": PackedFloat32Array(1, 1, 1),
-"update": 0,
-"values": [Vector3(127.372, 1.56549, 11.3493), Vector3(-15.7952, 1.56549, 18.6113), Vector3(-249.384, 1.56548, 3.58598)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("hits/hit_triangle12:scale")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0, 0.1, 0.366667, 0.44),
-"transitions": PackedFloat32Array(1, 1, 1, 1),
-"update": 0,
-"values": [Vector3(1, 1, 1), Vector3(5.81, 5.81, 5.81), Vector3(5.81, 5.81, 5.81), Vector3(6, 6, 6)]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("hits/hit_triangle12:rotation")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0, 1),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Vector3(0, 0, 0), Vector3(6.28319, 0, 0)]
-}
-
 [sub_resource type="Animation" id="Animation_5w7df"]
 length = 0.001
 tracks/0/type = "value"
@@ -83,6 +44,45 @@ tracks/2/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 0,
 "values": [Vector3(0, 0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_1xiko"]
+resource_name = "path_indicator"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("hits/hit_triangle12:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.38, 1),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector3(127.372, 1.56549, 11.3493), Vector3(-15.7952, 1.56549, 18.6113), Vector3(-249.384, 1.56548, 3.58598)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("hits/hit_triangle12:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.366667, 0.44),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector3(1, 1, 1), Vector3(5.81, 5.81, 5.81), Vector3(5.81, 5.81, 5.81), Vector3(6, 6, 6)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("hits/hit_triangle12:rotation")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(0, 0, 0), Vector3(6.28319, 0, 0)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_6hpe5"]

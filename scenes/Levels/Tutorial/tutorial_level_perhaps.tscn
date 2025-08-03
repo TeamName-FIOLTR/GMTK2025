@@ -1,9 +1,10 @@
-[gd_scene load_steps=9 format=3 uid="uid://d0nyst7dqjm3f"]
+[gd_scene load_steps=10 format=3 uid="uid://d0nyst7dqjm3f"]
 
 [ext_resource type="PackedScene" uid="uid://dgfytowwwycs4" path="res://assets/models/tutorial level maybe ig.glb" id="1_eh4c5"]
 [ext_resource type="PackedScene" uid="uid://cjceeaabehf1i" path="res://scenes/things/player.tscn" id="2_3dsw7"]
 [ext_resource type="PackedScene" uid="uid://epl3ixu78lxh" path="res://scenes/things/doorwhatever.tscn" id="3_pkbft"]
 [ext_resource type="PackedScene" uid="uid://chl4ap2kno7nn" path="res://scenes/prototype/hit_cube.tscn" id="4_4k1er"]
+[ext_resource type="PackedScene" uid="uid://b8ao2e3qwbrvs" path="res://scenes/things/level loader/level_loader.tscn" id="5_ucnp0"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_3dsw7"]
 sky_horizon_color = Color(0.662243, 0.671743, 0.686743, 1)
@@ -89,5 +90,9 @@ size = Vector3(1, 2.19843, 1)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14.9155, 1.07969, 0.166574)
 use_collision = true
 size = Vector3(1, 2.19843, 1)
+
+[node name="level loader sun" parent="." instance=ExtResource("5_ucnp0")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 18.7938, 3.27825, 0)
+level_path = "res://scenes/Levels/Balcony/balcony.tscn"
 
 [editable path="tutorial level maybe ig"]
