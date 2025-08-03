@@ -1,10 +1,95 @@
-[gd_scene load_steps=6 format=3 uid="uid://cxjmplpluoj5i"]
+[gd_scene load_steps=10 format=3 uid="uid://cxjmplpluoj5i"]
 
 [ext_resource type="PackedScene" uid="uid://b5677vs1w7gr2" path="res://assets/models/balcony.glb" id="1_2wpim"]
 [ext_resource type="PackedScene" uid="uid://cjceeaabehf1i" path="res://scenes/things/player.tscn" id="2_i2ixo"]
 [ext_resource type="PackedScene" uid="uid://chl4ap2kno7nn" path="res://scenes/prototype/hit_cube.tscn" id="3_i2ixo"]
 [ext_resource type="PackedScene" uid="uid://c4i5oyke602dk" path="res://scenes/things/hit_triangle/hit_triangle.tscn" id="4_1xiko"]
 [ext_resource type="PackedScene" uid="uid://epl3ixu78lxh" path="res://scenes/things/doorwhatever.tscn" id="4_oox3t"]
+[ext_resource type="Script" uid="uid://bbdlp77odm357" path="res://scenes/Levels/Balcony/path_indicator.gd" id="5_5w7df"]
+
+[sub_resource type="Animation" id="Animation_1xiko"]
+resource_name = "path_indicator"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("hits/hit_triangle12:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.38, 1),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector3(127.372, 1.56549, 11.3493), Vector3(-15.7952, 1.56549, 18.6113), Vector3(-249.384, 1.56548, 3.58598)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("hits/hit_triangle12:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.366667, 0.44),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector3(1, 1, 1), Vector3(5.81, 5.81, 5.81), Vector3(5.81, 5.81, 5.81), Vector3(6, 6, 6)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("hits/hit_triangle12:rotation")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(0, 0, 0), Vector3(6.28319, 0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_5w7df"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("hits/hit_triangle12:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(127.372, 1.56549, 11.3493)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("hits/hit_triangle12:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(1, 1, 1)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("hits/hit_triangle12:rotation")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_6hpe5"]
+_data = {
+&"RESET": SubResource("Animation_5w7df"),
+&"path_indicator": SubResource("Animation_1xiko")
+}
 
 [node name="balcony_level" type="Node3D"]
 
@@ -160,16 +245,6 @@ transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 209.71
 size = Vector2(14.976, 9.813)
 hit_cubes = [NodePath("../hit cubes/Hit Cube"), NodePath("../hit cubes/Hit Cube4"), NodePath("../hit cubes/Hit Cube5"), NodePath("../hit cubes/Hit Cube2"), NodePath("../hit cubes/Hit Cube2"), NodePath("../hit cubes/Hit Cube3")]
 
-[node name="Doorwhatever2" parent="balcony2/gauntlet1" node_paths=PackedStringArray("hit_cubes") instance=ExtResource("4_oox3t")]
-transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 147.124, -0.218313, 10.1247)
-size = Vector2(14.681, 11.643)
-hit_cubes = [NodePath("../../gauntlet2/hitable triangle/hit_triangle4"), NodePath("../../gauntlet2/hitable triangle/hit_triangle5"), NodePath("../../gauntlet2/hitable triangle/hit_triangle6"), NodePath("../../gauntlet2/hitable triangle/hit_triangle7"), NodePath("../../gauntlet2/hitable triangle/hit_triangle8"), NodePath("../../gauntlet2/hitable triangle/hit_triangle9"), NodePath("../../gauntlet2/hitable triangle/hit_triangle10")]
-
-[node name="Doorwhatever4" parent="balcony2/gauntlet1" node_paths=PackedStringArray("hit_cubes") instance=ExtResource("4_oox3t")]
-transform = Transform3D(-0.0340448, 0, 0.99942, 0, 1, 0, -0.99942, 0, -0.0340448, 139.434, -0.218313, 10.9354)
-size = Vector2(14.681, 11.643)
-hit_cubes = [NodePath("../../gauntlet2/hitable triangle/hit_triangle11")]
-
 [node name="parqore" type="Node3D" parent="balcony2/gauntlet1"]
 
 [node name="elevation" type="CSGBox3D" parent="balcony2/gauntlet1/parqore"]
@@ -274,13 +349,40 @@ time_left = 15.0
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 142.438, 1.56548, 9.57381)
 time_left = 15.0
 
-[node name="hit_triangle12" parent="balcony2/gauntlet2/hitable triangle" groups=["Loaders", "Savers"] instance=ExtResource("4_1xiko")]
-transform = Transform3D(5.81, 0, 0, 0, 5.81, 0, 0, 0, 5.81, -249.384, 1.56548, 3.58598)
-time_left = 15.0
-
 [node name="hit_triangle10" parent="balcony2/gauntlet2/hitable triangle" groups=["Loaders", "Savers"] instance=ExtResource("4_1xiko")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 152.433, 2.4217, 13.3814)
 time_left = 15.0
+
+[node name="Doorwhatever2" parent="balcony2/gauntlet2" node_paths=PackedStringArray("hit_cubes") instance=ExtResource("4_oox3t")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 147.124, -0.218313, 10.1247)
+size = Vector2(14.681, 11.643)
+hit_cubes = [NodePath("../hitable triangle/hit_triangle4"), NodePath("../hitable triangle/hit_triangle5"), NodePath("../hitable triangle/hit_triangle6"), NodePath("../hitable triangle/hit_triangle7"), NodePath("../hitable triangle/hit_triangle8"), NodePath("../hitable triangle/hit_triangle9"), NodePath("../hitable triangle/hit_triangle10")]
+
+[node name="speed gauntlet" type="Node3D" parent="balcony2"]
+
+[node name="obsticles" type="Node3D" parent="balcony2/speed gauntlet"]
+
+[node name="CSGBox3D" type="CSGBox3D" parent="balcony2/speed gauntlet/obsticles"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -259.763, 1.99359, 2.76928)
+use_collision = true
+size = Vector3(1, 4.29248, 15.6795)
+
+[node name="hits" type="Node3D" parent="balcony2/speed gauntlet"]
+
+[node name="hit_triangle12" parent="balcony2/speed gauntlet/hits" groups=["Loaders", "Savers"] instance=ExtResource("4_1xiko")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 127.372, 1.56549, 11.3493)
+time_left = 15.5
+
+[node name="PathIndicator" type="AnimationPlayer" parent="balcony2/speed gauntlet" groups=["Loaders"]]
+libraries = {
+&"": SubResource("AnimationLibrary_6hpe5")
+}
+script = ExtResource("5_5w7df")
+
+[node name="Doorwhatever4" parent="balcony2/speed gauntlet" node_paths=PackedStringArray("hit_cubes") instance=ExtResource("4_oox3t")]
+transform = Transform3D(-0.0340448, 0, 0.99942, 0, 1, 0, -0.99942, 0, -0.0340448, 139.434, -0.218313, 10.9354)
+size = Vector2(14.681, 11.643)
+hit_cubes = [NodePath("../../gauntlet2/hitable triangle/hit_triangle11")]
 
 [node name="Player" parent="." instance=ExtResource("2_i2ixo")]
 transform = Transform3D(-0.170708, 0, 0.985322, 0, 1, 0, -0.985322, 0, -0.170708, -241.899, 2.08543, -41.5804)
@@ -289,6 +391,8 @@ transform = Transform3D(-0.170708, 0, 0.985322, 0, 1, 0, -0.985322, 0, -0.170708
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(0.575785, -0.515676, 0.634468, -0.723841, 0.039315, 0.688845, -0.380165, -0.855881, -0.350631, 11.0049, 12.6171, 4.28795)
+
+[connection signal="locked_changed" from="balcony2/speed gauntlet/Doorwhatever4" to="balcony2/speed gauntlet/PathIndicator" method="_on_doorwhatever_4_locked_changed"]
 
 [editable path="balcony"]
 [editable path="balcony2"]

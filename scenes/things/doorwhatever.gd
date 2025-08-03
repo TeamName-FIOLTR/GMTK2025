@@ -17,7 +17,7 @@ signal locked_changed
 	set(n_locked):
 		just_unlocked = (!n_locked and locked)
 		locked = n_locked
-		emit_signal("locked_changed")
+		emit_signal("locked_changed",locked)
 var lets_commit : bool = false
 signal active_changed
 @export var active : bool = true:
