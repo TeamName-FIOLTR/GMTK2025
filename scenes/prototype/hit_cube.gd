@@ -88,5 +88,7 @@ func _on_area_3d_hit(thing: Variant) -> void:
 	if self.locked: return
 	if state == HitCubeState.IDLE:
 		state = HitCubeState.HIT
+		$AudioStreamPlayer3D.play()
+		$AnimationPlayer.play("hit")
 		get_tree().call_group("ScoreKeepers","increment_current_score", 1)
 	pass # Replace with function body.

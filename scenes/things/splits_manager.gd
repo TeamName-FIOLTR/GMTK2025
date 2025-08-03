@@ -29,12 +29,6 @@ func format_time(seconds : float, decimals = 2) -> String:
 	return ("%02d:%02d.%0Vd".replace("V",str(decimals)))%[minutes,floori(seconds),floori(sub_seconds*pow(10,decimals))]
 	pass
 
-
-# Called when the node enters the scene tree for the first time.
-func _ready() -> void:
-	commit_split("Start")
-	pass # Replace with function body.
-
 # Commit a split to the splits array, resizing if nessicary [br] god i can never spell that word bruh
 func commit_split(split_title : String = ""):
 	var new_split_state : Dictionary
