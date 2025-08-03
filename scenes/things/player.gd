@@ -24,7 +24,7 @@ func _ready() -> void:
 	pass
 
 func _physics_process(delta: float) -> void:
-	
+	$Control/Label.text = "Press R to Reload\n\n\nCurrent Speed: %2.3f"%SPEED
 	var physics_time_ms = Time.get_ticks_usec()/1.0e+3
 	var acceptable_jump = is_on_floor() or abs(physics_time_ms-last_collision_ms) <= coyote_time
 	
@@ -51,8 +51,8 @@ func _physics_process(delta: float) -> void:
 	else:
 		velocity.x = move_toward(velocity.x, 0, SPEED)
 		velocity.z = move_toward(velocity.z, 0, SPEED)
-		SPEED = lerp(SPEED, MIN_SPEED, pow(SPEED_DECAY_FACTOR,delta)) 
-		SPEED += -5.0*delta
+		#SPEED = lerp(SPEED, MIN_SPEED, pow(SPEED_DECAY_FACTOR,delta)) 
+		SPEED *= pow(2.0,-delta/5.0)
 		SPEED = max(SPEED,MIN_SPEED)
 	var last_collisions = get_last_slide_collision()
 	move_and_slide()
@@ -95,6 +95,8 @@ func _input(event: InputEvent) -> void:
 		$Yaw/Pitch/Roll/Camera3D/Marker3D/CSGBox3D/GUNAudioStreamPlayer3D.play()
 		$Yaw/Pitch/Roll/Camera3D/Marker3D/CSGBox3D/AnimationPlayer.stop()
 		$Yaw/Pitch/Roll/Camera3D/Marker3D/CSGBox3D/AnimationPlayer.play("new_animation")
+	if event.is_action_pressed("hard_reset"):
+		get_tree().reload_current_scene()
 
 func apply_jump():
 	velocity.y = JUMP_VELOCITY

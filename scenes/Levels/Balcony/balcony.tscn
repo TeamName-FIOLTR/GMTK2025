@@ -296,27 +296,27 @@ size = Vector3(17.335, 2.24057, 14.5629)
 [node name="CSGBox3D4" type="CSGBox3D" parent="balcony2/gauntlet1/parqore"]
 transform = Transform3D(0.998062, 0, 0.0622331, 0, 1, 0, -0.0622331, 0, 0.998062, 228.456, 0.347337, 4.32597)
 use_collision = true
-size = Vector3(0.86203, 0.662249, 1.05897)
+size = Vector3(1.859, 0.662249, 2.259)
 
 [node name="CSGBox3D5" type="CSGBox3D" parent="balcony2/gauntlet1/parqore"]
 transform = Transform3D(0.998062, 0, 0.0622331, 0, 1, 0, -0.0622331, 0, 0.998062, 224.226, 0.657099, 4.32597)
 use_collision = true
-size = Vector3(0.86203, 1.28177, 1.05897)
+size = Vector3(1.859, 1.28177, 2.259)
 
 [node name="CSGBox3D6" type="CSGBox3D" parent="balcony2/gauntlet1/parqore"]
 transform = Transform3D(0.998062, 0, 0.0622331, 0, 1, 0, -0.0622331, 0, 0.998062, 224.226, 0.834851, 1.72345)
 use_collision = true
-size = Vector3(0.86203, 1.63728, 1.05897)
+size = Vector3(1.859, 1.63728, 2.259)
 
 [node name="CSGBox3D7" type="CSGBox3D" parent="balcony2/gauntlet1/parqore"]
 transform = Transform3D(0.998062, 0, 0.0622331, 0, 1, 0, -0.0622331, 0, 0.998062, 224.226, 0.848218, 7.02392)
 use_collision = true
-size = Vector3(0.86203, 1.66401, 1.05897)
+size = Vector3(1.859, 1.66401, 2.259)
 
 [node name="CSGBox3D8" type="CSGBox3D" parent="balcony2/gauntlet1/parqore"]
 transform = Transform3D(0.998062, 0, 0.0622331, 0, 1, 0, -0.0622331, 0, 0.998062, 222.01, 0.657099, 7.02392)
 use_collision = true
-size = Vector3(0.86203, 1.28177, 1.05897)
+size = Vector3(1.859, 1.28177, 2.259)
 
 [node name="CSGBox3D9" type="CSGBox3D" parent="balcony2/gauntlet1/parqore"]
 transform = Transform3D(0.998062, 0, 0.0622331, 0, 1, 0, -0.0622331, 0, 0.998062, 222.01, 0.255896, 4.60589)
@@ -336,7 +336,7 @@ size = Vector3(0.86203, 4.0998, 1.05897)
 [node name="CSGBox3D10" type="CSGBox3D" parent="balcony2/gauntlet1/parqore"]
 transform = Transform3D(0.998062, 0, 0.0622331, 0, 1, 0, -0.0622331, 0, 0.998062, 222.01, 0.657099, 1.77229)
 use_collision = true
-size = Vector3(0.86203, 1.28177, 1.05897)
+size = Vector3(1.859, 1.28177, 2.259)
 
 [node name="hit cubes" type="Node3D" parent="balcony2/gauntlet1"]
 
@@ -434,6 +434,7 @@ hit_cubes = [NodePath("../../gauntlet2/hitable triangle/hit_triangle11")]
 
 [node name="Hit Cube" parent="balcony2/speed gauntlet" instance=ExtResource("3_i2ixo")]
 transform = Transform3D(10, 0, 0, 0, 10, 0, 0, 0, 10, -209.541, -3.52759, 7.09325)
+time_left = 654654.0
 
 [node name="Player" parent="." instance=ExtResource("2_i2ixo")]
 transform = Transform3D(-0.170708, 0, 0.985322, 0, 1, 0, -0.985322, 0, -0.170708, 190.272, 0.0382988, 8.68542)
