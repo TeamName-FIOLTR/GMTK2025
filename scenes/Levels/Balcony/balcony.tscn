@@ -11,6 +11,8 @@
 [node name="balcony" parent="." instance=ExtResource("1_2wpim")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.84163, 1.19209e-07, -0.687196)
 
+[node name="Cube" parent="balcony" index="0" groups=["Loaders", "Savers"]]
+
 [node name="environment_collisions" type="Node3D" parent="balcony"]
 
 [node name="CSGBox3D" type="CSGBox3D" parent="balcony/environment_collisions"]
@@ -89,7 +91,7 @@ size = Vector2(300, 13.11)
 hit_cubes = [NodePath("../unlock hit cube")]
 
 [node name="seperator door4" parent="balcony" node_paths=PackedStringArray("hit_cubes") instance=ExtResource("4_oox3t")]
-transform = Transform3D(-0.997801, 0, -0.0662739, 0, 1, 0, 0.0662739, 0, -0.997801, -151.049, -1.19209e-07, -39.8757)
+transform = Transform3D(-0.997801, 0, -0.0662739, 0, 1, 0, 0.0662739, 0, -0.997801, -691.229, -1.19209e-07, -39.8757)
 size = Vector2(300, 13.11)
 hit_cubes = [NodePath("../unlock hit cube")]
 
@@ -124,32 +126,164 @@ hit_cubes = [NodePath("../../speed triangles/hit_triangle2"), NodePath("../../sp
 
 [node name="speed triangles" type="Node3D" parent="balcony"]
 
-[node name="hit_triangle8" parent="balcony/speed triangles" instance=ExtResource("4_1xiko")]
+[node name="hit_triangle8" parent="balcony/speed triangles" groups=["Loaders", "Savers"] instance=ExtResource("4_1xiko")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -170.856, 0.542031, 6.74141)
 time_left = 30.0
 
-[node name="hit_triangle" parent="balcony/speed triangles" instance=ExtResource("4_1xiko")]
+[node name="hit_triangle" parent="balcony/speed triangles" groups=["Loaders", "Savers"] instance=ExtResource("4_1xiko")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -183.592, 0.330959, 6.64214)
 
-[node name="hit_triangle2" parent="balcony/speed triangles" instance=ExtResource("4_1xiko")]
+[node name="hit_triangle2" parent="balcony/speed triangles" groups=["Loaders", "Savers"] instance=ExtResource("4_1xiko")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -191.756, 0.265201, 6.81532)
 
 [node name="hit_triangle3" parent="balcony/speed triangles" instance=ExtResource("4_1xiko")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -198.099, 0.265201, 6.81532)
 
-[node name="hit_triangle4" parent="balcony/speed triangles" instance=ExtResource("4_1xiko")]
+[node name="hit_triangle4" parent="balcony/speed triangles" groups=["Loaders", "Savers"] instance=ExtResource("4_1xiko")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -203.678, 0.265201, 6.81532)
 
-[node name="hit_triangle5" parent="balcony/speed triangles" instance=ExtResource("4_1xiko")]
+[node name="hit_triangle5" parent="balcony/speed triangles" groups=["Loaders", "Savers"] instance=ExtResource("4_1xiko")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -207.987, 0.265201, 6.81532)
 
 [node name="balcony2" parent="." instance=ExtResource("1_2wpim")]
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -0.84163, -0.34243, -37.9547)
 
-[node name="Node3D" type="Node3D" parent="balcony2"]
+[node name="gauntlet1" type="Node3D" parent="balcony2"]
+
+[node name="Doorwhatever" parent="balcony2/gauntlet1" node_paths=PackedStringArray("hit_cubes") instance=ExtResource("4_oox3t")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 202.633, 1.65477, 6.52845)
+size = Vector2(14.976, 9.813)
+hit_cubes = [NodePath("../hit cubes/hit_triangle")]
+
+[node name="Doorwhatever3" parent="balcony2/gauntlet1" node_paths=PackedStringArray("hit_cubes") instance=ExtResource("4_oox3t")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 209.714, 1.65477, 6.52845)
+size = Vector2(14.976, 9.813)
+hit_cubes = [NodePath("../hit cubes/Hit Cube"), NodePath("../hit cubes/Hit Cube4"), NodePath("../hit cubes/Hit Cube5"), NodePath("../hit cubes/Hit Cube2"), NodePath("../hit cubes/Hit Cube2"), NodePath("../hit cubes/Hit Cube3")]
+
+[node name="Doorwhatever2" parent="balcony2/gauntlet1" node_paths=PackedStringArray("hit_cubes") instance=ExtResource("4_oox3t")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 147.124, -0.218313, 10.1247)
+size = Vector2(14.681, 11.643)
+hit_cubes = [NodePath("../../gauntlet2/hitable triangle/hit_triangle4"), NodePath("../../gauntlet2/hitable triangle/hit_triangle5"), NodePath("../../gauntlet2/hitable triangle/hit_triangle6"), NodePath("../../gauntlet2/hitable triangle/hit_triangle7"), NodePath("../../gauntlet2/hitable triangle/hit_triangle8"), NodePath("../../gauntlet2/hitable triangle/hit_triangle9"), NodePath("../../gauntlet2/hitable triangle/hit_triangle10")]
+
+[node name="Doorwhatever4" parent="balcony2/gauntlet1" node_paths=PackedStringArray("hit_cubes") instance=ExtResource("4_oox3t")]
+transform = Transform3D(-0.0340448, 0, 0.99942, 0, 1, 0, -0.99942, 0, -0.0340448, 139.434, -0.218313, 10.9354)
+size = Vector2(14.681, 11.643)
+hit_cubes = [NodePath("../../gauntlet2/hitable triangle/hit_triangle11")]
+
+[node name="parqore" type="Node3D" parent="balcony2/gauntlet1"]
+
+[node name="elevation" type="CSGBox3D" parent="balcony2/gauntlet1/parqore"]
+transform = Transform3D(0.998062, 0, 0.0622331, 0, 1, 0, -0.0622331, 0, 0.998062, 204.867, 0.620285, 6.01984)
+use_collision = true
+size = Vector3(17.335, 2.24057, 14.5629)
+
+[node name="CSGBox3D4" type="CSGBox3D" parent="balcony2/gauntlet1/parqore"]
+transform = Transform3D(0.998062, 0, 0.0622331, 0, 1, 0, -0.0622331, 0, 0.998062, 228.456, 0.347337, 4.32597)
+use_collision = true
+size = Vector3(0.86203, 0.662249, 1.05897)
+
+[node name="CSGBox3D5" type="CSGBox3D" parent="balcony2/gauntlet1/parqore"]
+transform = Transform3D(0.998062, 0, 0.0622331, 0, 1, 0, -0.0622331, 0, 0.998062, 224.226, 0.657099, 4.32597)
+use_collision = true
+size = Vector3(0.86203, 1.28177, 1.05897)
+
+[node name="CSGBox3D6" type="CSGBox3D" parent="balcony2/gauntlet1/parqore"]
+transform = Transform3D(0.998062, 0, 0.0622331, 0, 1, 0, -0.0622331, 0, 0.998062, 224.226, 0.834851, 1.72345)
+use_collision = true
+size = Vector3(0.86203, 1.63728, 1.05897)
+
+[node name="CSGBox3D7" type="CSGBox3D" parent="balcony2/gauntlet1/parqore"]
+transform = Transform3D(0.998062, 0, 0.0622331, 0, 1, 0, -0.0622331, 0, 0.998062, 224.226, 0.848218, 7.02392)
+use_collision = true
+size = Vector3(0.86203, 1.66401, 1.05897)
+
+[node name="CSGBox3D8" type="CSGBox3D" parent="balcony2/gauntlet1/parqore"]
+transform = Transform3D(0.998062, 0, 0.0622331, 0, 1, 0, -0.0622331, 0, 0.998062, 222.01, 0.657099, 7.02392)
+use_collision = true
+size = Vector3(0.86203, 1.28177, 1.05897)
+
+[node name="CSGBox3D9" type="CSGBox3D" parent="balcony2/gauntlet1/parqore"]
+transform = Transform3D(0.998062, 0, 0.0622331, 0, 1, 0, -0.0622331, 0, 0.998062, 222.01, 0.255896, 4.60589)
+use_collision = true
+size = Vector3(0.86203, 4.43776, 1.05897)
+
+[node name="CSGBox3D11" type="CSGBox3D" parent="balcony2/gauntlet1/parqore"]
+transform = Transform3D(0.998062, 0, 0.0622331, 0, 1, 0, -0.0622331, 0, 0.998062, 219.441, 1.65733, 4.60589)
+use_collision = true
+size = Vector3(0.86203, 3.28223, 1.05897)
+
+[node name="CSGBox3D12" type="CSGBox3D" parent="balcony2/gauntlet1/parqore"]
+transform = Transform3D(0.998062, 0, 0.0622331, 0, 1, 0, -0.0622331, 0, 0.998062, 217.489, 2.06611, 4.60589)
+use_collision = true
+size = Vector3(0.86203, 4.0998, 1.05897)
+
+[node name="CSGBox3D10" type="CSGBox3D" parent="balcony2/gauntlet1/parqore"]
+transform = Transform3D(0.998062, 0, 0.0622331, 0, 1, 0, -0.0622331, 0, 0.998062, 222.01, 0.657099, 1.77229)
+use_collision = true
+size = Vector3(0.86203, 1.28177, 1.05897)
+
+[node name="hit cubes" type="Node3D" parent="balcony2/gauntlet1"]
+
+[node name="hit_triangle" parent="balcony2/gauntlet1/hit cubes" groups=["Loaders", "Savers"] instance=ExtResource("4_1xiko")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 205.916, 3.90854, 5.25373)
+
+[node name="Hit Cube" parent="balcony2/gauntlet1/hit cubes" instance=ExtResource("3_i2ixo")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 222.798, 2.65332, 8.01878)
+
+[node name="Hit Cube4" parent="balcony2/gauntlet1/hit cubes" instance=ExtResource("3_i2ixo")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 219.693, 2.65332, 8.01878)
+
+[node name="Hit Cube5" parent="balcony2/gauntlet1/hit cubes" instance=ExtResource("3_i2ixo")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 219.693, 4.52122, 4.70704)
+
+[node name="Hit Cube2" parent="balcony2/gauntlet1/hit cubes" instance=ExtResource("3_i2ixo")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 222.798, 2.65332, 1.66956)
+
+[node name="Hit Cube3" parent="balcony2/gauntlet1/hit cubes" instance=ExtResource("3_i2ixo")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 219.225, 2.65332, 1.66956)
+
+[node name="gauntlet2" type="Node3D" parent="balcony2"]
+
+[node name="hitable triangle" type="Node3D" parent="balcony2/gauntlet2"]
+
+[node name="hit_triangle4" parent="balcony2/gauntlet2/hitable triangle" groups=["Loaders", "Savers"] instance=ExtResource("4_1xiko")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 183.442, 0.803378, 9.8394)
+time_left = 13.0
+
+[node name="hit_triangle5" parent="balcony2/gauntlet2/hitable triangle" groups=["Loaders", "Savers"] instance=ExtResource("4_1xiko")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 174.401, 4.65164, 11.601)
+time_left = 13.0
+
+[node name="hit_triangle6" parent="balcony2/gauntlet2/hitable triangle" groups=["Loaders", "Savers"] instance=ExtResource("4_1xiko")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 163.84, 6.51878, 9.24971)
+time_left = 13.0
+
+[node name="hit_triangle7" parent="balcony2/gauntlet2/hitable triangle" groups=["Loaders", "Savers"] instance=ExtResource("4_1xiko")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 156.891, 6.51878, 5.41186)
+time_left = 13.0
+
+[node name="hit_triangle8" parent="balcony2/gauntlet2/hitable triangle" groups=["Loaders", "Savers"] instance=ExtResource("4_1xiko")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 152.854, 3.80696, 6.93724)
+time_left = 15.0
+
+[node name="hit_triangle9" parent="balcony2/gauntlet2/hitable triangle" groups=["Loaders", "Savers"] instance=ExtResource("4_1xiko")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 152.854, 1.56548, 9.57381)
+time_left = 15.0
+
+[node name="hit_triangle11" parent="balcony2/gauntlet2/hitable triangle" groups=["Loaders", "Savers"] instance=ExtResource("4_1xiko")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 142.438, 1.56548, 9.57381)
+time_left = 15.0
+
+[node name="hit_triangle12" parent="balcony2/gauntlet2/hitable triangle" groups=["Loaders", "Savers"] instance=ExtResource("4_1xiko")]
+transform = Transform3D(5.81, 0, 0, 0, 5.81, 0, 0, 0, 5.81, -249.384, 1.56548, 3.58598)
+time_left = 15.0
+
+[node name="hit_triangle10" parent="balcony2/gauntlet2/hitable triangle" groups=["Loaders", "Savers"] instance=ExtResource("4_1xiko")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 152.433, 2.4217, 13.3814)
+time_left = 15.0
 
 [node name="Player" parent="." instance=ExtResource("2_i2ixo")]
-transform = Transform3D(-0.170708, 0, 0.985322, 0, 1, 0, -0.985322, 0, -0.170708, -165.124, 2.08543, 8.43833)
+transform = Transform3D(-0.170708, 0, 0.985322, 0, 1, 0, -0.985322, 0, -0.170708, -241.899, 2.08543, -41.5804)
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 
