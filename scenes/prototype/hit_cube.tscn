@@ -1,8 +1,9 @@
-[gd_scene load_steps=6 format=3 uid="uid://chl4ap2kno7nn"]
+[gd_scene load_steps=10 format=3 uid="uid://chl4ap2kno7nn"]
 
 [ext_resource type="Script" uid="uid://co77n0pqj8smn" path="res://scenes/prototype/hit_cube.gd" id="1_6ilaj"]
 [ext_resource type="Shader" uid="uid://rxbm8imtwj36" path="res://scenes/prototype/hit_cube.gdshader" id="1_ymlcx"]
 [ext_resource type="Script" uid="uid://cuau5ufx4fbtt" path="res://scenes/prototype/hitable_area.gd" id="2_86u20"]
+[ext_resource type="AudioStream" uid="uid://b66rjyrhlbicj" path="res://assets/sounds/Laser_01.wav" id="4_qiyo6"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_86u20"]
 
@@ -11,6 +12,91 @@ resource_local_to_scene = true
 render_priority = 0
 shader = ExtResource("1_ymlcx")
 shader_parameter/color = Color(0, 1, 0, 1)
+
+[sub_resource type="Animation" id="Animation_qiyo6"]
+resource_name = "hit"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Area3D/CSGBox3D:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.0363495, 0.133333),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector3(0, 0, 0), Vector3(0, 0.3, 0), Vector3(0, 0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Area3D/CSGBox3D:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.0363495, 0.133333),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector3(1, 1, 1), Vector3(0.5, 0.5, 0.5), Vector3(1, 1, 1)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Area3D/CSGBox3D:rotation")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(0, 0, 0), Vector3(0, 0, 6.28319)]
+}
+
+[sub_resource type="Animation" id="Animation_j6apk"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Area3D/CSGBox3D:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Area3D/CSGBox3D:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(1, 1, 1)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Area3D/CSGBox3D:rotation")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_j6apk"]
+_data = {
+&"RESET": SubResource("Animation_j6apk"),
+&"hit": SubResource("Animation_qiyo6")
+}
 
 [node name="Hit Cube" type="Node3D" groups=["Loaders", "Savers"]]
 script = ExtResource("1_6ilaj")
@@ -24,6 +110,14 @@ shape = SubResource("BoxShape3D_86u20")
 
 [node name="CSGBox3D" type="CSGBox3D" parent="Area3D"]
 material = SubResource("ShaderMaterial_6ilaj")
+
+[node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="."]
+stream = ExtResource("4_qiyo6")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_j6apk")
+}
 
 [connection signal="hit" from="Area3D" to="." method="_on_area_3d_hit"]
 [connection signal="input_event" from="Area3D" to="." method="_on_area_3d_input_event"]

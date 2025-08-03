@@ -18,6 +18,9 @@ func _ready() -> void:
 	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
 	#await RenderingServer.frame_post_draw
 	#get_tree().call_group("Savers","save", data_test)
+
+	#intial split when the player enters the tree
+	GlobalSplitsManager.commit_split("Start")
 	pass
 
 func _physics_process(delta: float) -> void:
@@ -105,3 +108,4 @@ func load_state(load_data : Dictionary):
 		position = load_data["Player"]["Position"]
 		camera_rotation = load_data["Player"]["CameraRotation"]
 		apply_camera_rotation()
+		$AudioStreamPlayer3D.play()

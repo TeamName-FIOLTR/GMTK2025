@@ -13,10 +13,17 @@ signal size_changed
 		emit_signal("size_changed") # best way to get around on-ready set getters
 var just_unlocked : bool = false
 signal locked_changed
+
+var can_play : bool = true #hack to make sound work under time limit
+
 @export var locked : bool = false:
 	set(n_locked):
 		just_unlocked = (!n_locked and locked)
 		locked = n_locked
+		if not locked and can_play:
+			$AudioStreamPlayer3D.play()
+			can_play = false
+			pass
 		emit_signal("locked_changed",locked)
 var lets_commit : bool = false
 signal active_changed
