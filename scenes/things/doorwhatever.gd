@@ -72,6 +72,7 @@ func update_door():
 	$StaticBody3D.process_mode = Node.PROCESS_MODE_INHERIT if locked else PROCESS_MODE_DISABLED
 	
 	if next_door:
+		print("loop")
 		next_door.active = !locked
 		next_door.door_index = door_index + 1
 	
