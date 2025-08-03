@@ -8,6 +8,9 @@ enum HitCubeState{
 	HIT
 }
 
+#if true the cube cannot be hit, used for puppeting / animations
+@export var locked : bool = false
+
 signal state_changed(hit_state)
 
 
@@ -32,6 +35,8 @@ func _physics_process(delta: float) -> void:
 	update_cube_state()
 
 func state_to_color()-> Color:
+	if self.locked: return Color.YELLOW
+
 	match state:
 		HitCubeState.PAUSED: return Color.YELLOW
 		HitCubeState.IDLE: return Color.GREEN
@@ -80,7 +85,7 @@ func _on_area_3d_input_event(camera: Node, event: InputEvent, event_position: Ve
 
 
 func _on_area_3d_hit(thing: Variant) -> void:
-	print_debug("hit")
+	if self.locked: return
 	if state == HitCubeState.IDLE:
 		state = HitCubeState.HIT
 		get_tree().call_group("ScoreKeepers","increment_current_score", 1)

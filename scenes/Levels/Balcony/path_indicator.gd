@@ -1,12 +1,13 @@
 extends AnimationPlayer
 
-var locked : bool = false
+var locked : bool = true
 
 func play_animation()->void:
 	if not locked:
+		play("RESET")
 		play("path_indicator")
 	else:
-		play_backwards("path_indicator")
+		play("RESET")
 
 
 
