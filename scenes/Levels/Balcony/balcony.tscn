@@ -445,6 +445,7 @@ transform = Transform3D(0.575785, -0.515676, 0.634468, -0.723841, 0.039315, 0.68
 
 [node name="level loader sun" parent="." instance=ExtResource("7_6hpe5")]
 transform = Transform3D(5, 0, 0, 0, 5, 0, 0, 0, 5, 249.606, 2.31845, 3.37889)
+level_path = "res://scenes/Levels/EndScreen/end_screen.tscn"
 
 [connection signal="locked_changed" from="balcony2/speed gauntlet/Doorwhatever4" to="balcony2/speed gauntlet/PathIndicator" method="_on_doorwhatever_4_locked_changed"]
 
