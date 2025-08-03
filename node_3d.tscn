@@ -1,0 +1,24 @@
+[gd_scene load_steps=2 format=3 uid="uid://c2pjjo105hkt5"]
+
+[ext_resource type="PackedScene" uid="uid://epl3ixu78lxh" path="res://scenes/things/doorwhatever.tscn" id="1_a202f"]
+
+[node name="Node3D" type="Node3D"]
+
+[node name="one" parent="." node_paths=PackedStringArray("next_door") instance=ExtResource("1_a202f")]
+active = false
+next_door = NodePath("../two")
+
+[node name="two" parent="." node_paths=PackedStringArray("next_door") instance=ExtResource("1_a202f")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 2.24169)
+next_door = NodePath("../three")
+
+[node name="three" parent="." node_paths=PackedStringArray("next_door") instance=ExtResource("1_a202f")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -2.88097)
+next_door = NodePath("../four")
+
+[node name="four" parent="." node_paths=PackedStringArray("next_door") instance=ExtResource("1_a202f")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -8.28708)
+next_door = NodePath("../five")
+
+[node name="five" parent="." instance=ExtResource("1_a202f")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -13.4801)

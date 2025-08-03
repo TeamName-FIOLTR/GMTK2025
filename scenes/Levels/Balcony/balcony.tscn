@@ -192,7 +192,6 @@ time_left = 16.0
 [node name="second door" parent="balcony" node_paths=PackedStringArray("next_door", "hit_cubes") instance=ExtResource("4_oox3t")]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -63.163, 0, 16.6044)
 size = Vector2(15.483, 11.455)
-active = false
 next_door = NodePath("../section3/third door")
 hit_cubes = [NodePath("../level 2 cubes/Hit Cube"), NodePath("../level 2 cubes/Hit Cube2"), NodePath("../level 2 cubes/Hit Cube3")]
 
@@ -210,7 +209,6 @@ hit_cubes = [NodePath("../../balcony2/speed gauntlet/hits/flying hit triangle")]
 [node name="fith door (seperator)" parent="balcony" node_paths=PackedStringArray("next_door", "hit_cubes") instance=ExtResource("4_oox3t")]
 transform = Transform3D(0.997723, 0, -0.0674407, 0, 1, 0, 0.0674407, 0, 0.997723, -149.187, -1.19209e-07, 2.7312)
 size = Vector2(300, 13.11)
-active = false
 next_door = NodePath("../../balcony2/gauntlet1/six door")
 hit_cubes = [NodePath("../unlock hit cube")]
 
@@ -243,14 +241,12 @@ size = Vector3(1, 12.0524, 11.8115)
 [node name="third door" parent="balcony/section3" node_paths=PackedStringArray("next_door", "hit_cubes") instance=ExtResource("4_oox3t")]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -157.154, 0.033186, 10.0906)
 size = Vector2(15.483, 11.395)
-active = false
 next_door = NodePath("../fourth door")
 hit_cubes = [NodePath("../../level 2 cubes/Hit Cube6"), NodePath("../../level 2 cubes/Hit Cube4")]
 
 [node name="fourth door" parent="balcony/section3" node_paths=PackedStringArray("next_door", "hit_cubes") instance=ExtResource("4_oox3t")]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -220.693, 0.033186, 4.96455)
 size = Vector2(15.483, 11.395)
-active = false
 next_door = NodePath("../../fith door (seperator)")
 hit_cubes = [NodePath("../../speed triangles/hit_triangle8"), NodePath("../../speed triangles/hit_triangle"), NodePath("../../speed triangles/hit_triangle2"), NodePath("../../speed triangles/hit_triangle4"), NodePath("../../speed triangles/hit_triangle5")]
 
@@ -289,14 +285,12 @@ transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -0.841
 [node name="seventh door" parent="balcony2/gauntlet1" node_paths=PackedStringArray("next_door", "hit_cubes") instance=ExtResource("4_oox3t")]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 202.633, 1.65477, 6.52845)
 size = Vector2(14.976, 9.813)
-active = false
 next_door = NodePath("../../gauntlet2/eith door")
 hit_cubes = [NodePath("../hit cubes/hit_triangle")]
 
 [node name="six door" parent="balcony2/gauntlet1" node_paths=PackedStringArray("next_door", "hit_cubes") instance=ExtResource("4_oox3t")]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 209.714, 1.65477, 6.52845)
 size = Vector2(14.976, 9.813)
-active = false
 next_door = NodePath("../seventh door")
 hit_cubes = [NodePath("../hit cubes/Hit Cube"), NodePath("../hit cubes/Hit Cube4"), NodePath("../hit cubes/Hit Cube5"), NodePath("../hit cubes/Hit Cube2"), NodePath("../hit cubes/Hit Cube2"), NodePath("../hit cubes/Hit Cube3")]
 
@@ -417,7 +411,6 @@ time_left = 40.0
 [node name="eith door" parent="balcony2/gauntlet2" node_paths=PackedStringArray("next_door", "hit_cubes") instance=ExtResource("4_oox3t")]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 147.201, -0.0115345, 9.92984)
 size = Vector2(14.681, 11.643)
-active = false
 next_door = NodePath("../../speed gauntlet/ninth door")
 hit_cubes = [NodePath("../hitable triangle/hit_triangle4"), NodePath("../hitable triangle/hit_triangle5"), NodePath("../hitable triangle/hit_triangle6"), NodePath("../hitable triangle/hit_triangle7"), NodePath("../hitable triangle/hit_triangle8"), NodePath("../hitable triangle/hit_triangle9"), NodePath("../hitable triangle/hit_triangle10")]
 
@@ -447,7 +440,6 @@ watch_door = NodePath("../ninth door")
 [node name="ninth door" parent="balcony2/speed gauntlet" node_paths=PackedStringArray("next_door", "hit_cubes") instance=ExtResource("4_oox3t")]
 transform = Transform3D(-0.0340448, 0, 0.99942, 0, 1, 0, -0.99942, 0, -0.0340448, 139.434, -0.218313, 10.9354)
 size = Vector2(14.681, 11.643)
-active = false
 next_door = NodePath("../../../balcony/tenth door (seperator)")
 hit_cubes = [NodePath("../../gauntlet2/hitable triangle/hit_triangle11")]
 
