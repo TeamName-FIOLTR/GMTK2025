@@ -91,6 +91,10 @@ func _input(event: InputEvent) -> void:
 		apply_camera_rotation()
 	if event.is_action_pressed("load_state"):
 		GlobalSplitsManager.load_latest_split()
+	if event.is_action_pressed("attack"):
+		$Yaw/Pitch/Roll/Camera3D/Marker3D/CSGBox3D/GUNAudioStreamPlayer3D.play()
+		$Yaw/Pitch/Roll/Camera3D/Marker3D/CSGBox3D/AnimationPlayer.stop()
+		$Yaw/Pitch/Roll/Camera3D/Marker3D/CSGBox3D/AnimationPlayer.play("new_animation")
 
 func apply_jump():
 	velocity.y = JUMP_VELOCITY
@@ -109,3 +113,4 @@ func load_state(load_data : Dictionary):
 		camera_rotation = load_data["Player"]["CameraRotation"]
 		apply_camera_rotation()
 		$AudioStreamPlayer3D.play()
+		

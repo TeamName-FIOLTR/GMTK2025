@@ -12,7 +12,7 @@ signal size_changed
 		size = n_size
 		emit_signal("size_changed") # best way to get around on-ready set getters
 var just_unlocked : bool = false
-signal locked_changed
+signal locked_changed(lock_state)
 
 var can_play : bool = true #hack to make sound work under time limit
 
@@ -24,7 +24,7 @@ var can_play : bool = true #hack to make sound work under time limit
 			$AudioStreamPlayer3D.play()
 			can_play = false
 			pass
-		emit_signal("locked_changed",locked)
+		emit_signal("locked_changed", locked)
 var lets_commit : bool = false
 signal active_changed
 @export var active : bool = true:
@@ -55,7 +55,7 @@ func _ready() -> void:
 	if next_door: next_door.active = false
 	pass # Replace with function body.
 
-func update_door():
+func update_door(ugh = 0):
 	$MeshInstance3D.scale.x = size.x
 	$MeshInstance3D.scale.y = size.y
 	$MeshInstance3D.position.y = size.y/2.0
