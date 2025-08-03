@@ -88,6 +88,21 @@ transform = Transform3D(0.997723, 0, -0.0674407, 0, 1, 0, 0.0674407, 0, 0.997723
 size = Vector2(300, 13.11)
 hit_cubes = [NodePath("../unlock hit cube")]
 
+[node name="seperator door4" parent="balcony" node_paths=PackedStringArray("hit_cubes") instance=ExtResource("4_oox3t")]
+transform = Transform3D(-0.997801, 0, -0.0662739, 0, 1, 0, 0.0662739, 0, -0.997801, -151.049, -1.19209e-07, -39.8757)
+size = Vector2(300, 13.11)
+hit_cubes = [NodePath("../unlock hit cube")]
+
+[node name="seperator door2" parent="balcony" node_paths=PackedStringArray("hit_cubes") instance=ExtResource("4_oox3t")]
+transform = Transform3D(-0.997684, 0, 0.0680154, 0, 1, 0, -0.0680154, 0, -0.997684, 149.812, -1.19209e-07, -39.555)
+size = Vector2(300, 13.11)
+hit_cubes = [NodePath("../unlock hit cube")]
+
+[node name="seperator door3" parent="balcony" node_paths=PackedStringArray("hit_cubes") instance=ExtResource("4_oox3t")]
+transform = Transform3D(-0.997564, 0, -0.0697564, 0, 1, 0, 0.0697564, 0, -0.997564, 150.181, 0, 2.458)
+size = Vector2(300, 13.11)
+hit_cubes = [NodePath("../unlock hit cube")]
+
 [node name="unlock hit cube" parent="balcony" instance=ExtResource("3_i2ixo")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -261.255, 1.38317, 0)
 
@@ -130,6 +145,8 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -207.987, 0.265201, 6.81532)
 
 [node name="balcony2" parent="." instance=ExtResource("1_2wpim")]
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -0.84163, -0.34243, -37.9547)
+
+[node name="Node3D" type="Node3D" parent="balcony2"]
 
 [node name="Player" parent="." instance=ExtResource("2_i2ixo")]
 transform = Transform3D(-0.170708, 0, 0.985322, 0, 1, 0, -0.985322, 0, -0.170708, -165.124, 2.08543, 8.43833)
