@@ -1,11 +1,192 @@
-[gd_scene load_steps=8 format=3 uid="uid://cjceeaabehf1i"]
+[gd_scene load_steps=14 format=3 uid="uid://cjceeaabehf1i"]
 
 [ext_resource type="Script" uid="uid://bjxic2wagj2yx" path="res://scenes/things/player.gd" id="1_mnuyp"]
 [ext_resource type="PackedScene" uid="uid://g156w3528kws" path="res://scenes/prototype/speedsplit_display.tscn" id="2_ebmdi"]
+[ext_resource type="AudioStream" uid="uid://dongbfysbs0ar" path="res://assets/sounds/Laser_09.wav" id="2_ra4iq"]
 [ext_resource type="Shader" uid="uid://xshrwp25hq82" path="res://scenes/things/player_crosshair.gdshader" id="3_vjtw4"]
-[ext_resource type="AudioStream" uid="uid://djxktr5ryxrn7" path="res://assets/sounds/WarpDrive_00.wav" id="4_fseyh"]
+[ext_resource type="AudioStream" uid="uid://roang134olvv" path="res://assets/sounds/Menu_Select_00.wav" id="5_ra4iq"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_ma3r5"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_fseyh"]
+albedo_color = Color(0, 0, 0, 1)
+emission_enabled = true
+emission = Color(0, 0, 1, 1)
+emission_energy_multiplier = 32.95
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ra4iq"]
+albedo_color = Color(0, 0, 0, 1)
+emission_enabled = true
+emission = Color(0, 0, 1, 1)
+emission_energy_multiplier = 500.0
+
+[sub_resource type="Animation" id="Animation_ra4iq"]
+length = 0.001
+tracks/0/type = "bezier"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("..:position:x")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/1/type = "bezier"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("..:position:y")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/2/type = "bezier"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("..:position:z")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/3/type = "bezier"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("CSGBox3D5:scale:x")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(1, -0.0005, 0, 0.0005, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/4/type = "bezier"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("CSGBox3D5:scale:y")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(1, -0.0005, 0, 0.0005, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/5/type = "bezier"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("CSGBox3D5:scale:z")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(1, -0.0005, 0, 0.0005, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("CSGBox3D5:visible")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="Animation" id="Animation_fseyh"]
+resource_name = "new_animation"
+tracks/0/type = "bezier"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("..:position:x")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"handle_modes": PackedInt32Array(0, 0, 0),
+"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0, 0.133333, 0.3)
+}
+tracks/1/type = "bezier"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("..:position:y")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"handle_modes": PackedInt32Array(0, 0, 0),
+"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0, 0.133333, 0.3)
+}
+tracks/2/type = "bezier"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("..:position:z")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"handle_modes": PackedInt32Array(0, 0),
+"points": PackedFloat32Array(0.285, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0, 0.3)
+}
+tracks/3/type = "bezier"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("CSGBox3D5:scale:x")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(1, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/4/type = "bezier"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("CSGBox3D5:scale:y")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(1, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/5/type = "bezier"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("CSGBox3D5:scale:z")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(1, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("CSGBox3D5:visible")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0, 0.33),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_i0kp0"]
+_data = {
+&"RESET": SubResource("Animation_ra4iq"),
+&"new_animation": SubResource("Animation_fseyh")
+}
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_vjtw4"]
 shader = ExtResource("3_vjtw4")
@@ -35,6 +216,37 @@ fov = 110.0
 target_position = Vector3(0, 0, -1000)
 collide_with_areas = true
 collide_with_bodies = false
+
+[node name="Marker3D" type="Marker3D" parent="Yaw/Pitch/Roll/Camera3D"]
+
+[node name="CSGBox3D" type="CSGBox3D" parent="Yaw/Pitch/Roll/Camera3D/Marker3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.951874, -0.349121, -1.06654)
+size = Vector3(0.208862, 0.301758, 1)
+
+[node name="CSGBox3D4" type="CSGBox3D" parent="Yaw/Pitch/Roll/Camera3D/Marker3D/CSGBox3D"]
+size = Vector3(0.284, 0.067, 0.775)
+material = SubResource("StandardMaterial3D_fseyh")
+
+[node name="CSGBox3D5" type="CSGBox3D" parent="Yaw/Pitch/Roll/Camera3D/Marker3D/CSGBox3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -89.8078)
+size = Vector3(0.1, 0.1, 180.391)
+material = SubResource("StandardMaterial3D_ra4iq")
+
+[node name="CSGBox3D3" type="CSGBox3D" parent="Yaw/Pitch/Roll/Camera3D/Marker3D/CSGBox3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.19508, -0.422119)
+size = Vector3(0.029, 0.157, 0.156)
+
+[node name="CSGBox3D2" type="CSGBox3D" parent="Yaw/Pitch/Roll/Camera3D/Marker3D/CSGBox3D"]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, -0.345366, 0.351149)
+size = Vector3(0.208862, 0.301758, 1)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Yaw/Pitch/Roll/Camera3D/Marker3D/CSGBox3D"]
+libraries = {
+&"": SubResource("AnimationLibrary_i0kp0")
+}
+
+[node name="GUNAudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="Yaw/Pitch/Roll/Camera3D/Marker3D/CSGBox3D"]
+stream = ExtResource("2_ra4iq")
 
 [node name="Speedsplit Display" parent="." instance=ExtResource("2_ebmdi")]
 offset_left = 1017.0
@@ -68,4 +280,5 @@ visible = false
 mesh = SubResource("QuadMesh_ra4iq")
 
 [node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="."]
-stream = ExtResource("4_fseyh")
+stream = ExtResource("5_ra4iq")
+volume_db = -20.86
