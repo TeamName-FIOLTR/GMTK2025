@@ -9,11 +9,17 @@ enum HitCubeState{
 }
 
 signal state_changed(hit_state)
+
+
 var state : HitCubeState:
 	set(n_state):
 		state = n_state
 		emit_signal("state_changed", state)
 @export var time_left : float = 10.0
+
+func get_display_material()->Material:
+	return $Area3D/CSGBox3D.material
+
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	await RenderingServer.frame_pre_draw
@@ -25,16 +31,19 @@ func _physics_process(delta: float) -> void:
 		time_left -= delta
 	update_cube_state()
 
+func state_to_color()-> Color:
+	match state:
+		HitCubeState.PAUSED: return Color.YELLOW
+		HitCubeState.IDLE: return Color.GREEN
+		HitCubeState.EXPIRED: return Color.RED
+		HitCubeState.HIT: return Color.CYAN
+	return Color.RED
+
 func update_cube_state():
 	if not state == HitCubeState.HIT:
 		state = HitCubeState.EXPIRED if time_left <= 0.0 else HitCubeState.IDLE
-	var color = Color.RED
-	match state:
-		HitCubeState.PAUSED: color = Color.YELLOW
-		HitCubeState.IDLE: color = Color.GREEN
-		HitCubeState.EXPIRED: color = Color.RED
-		HitCubeState.HIT: color = Color.CYAN
-	$Area3D/CSGBox3D.material.set_shader_parameter("color",color)
+	var color : Color = state_to_color()
+	self.get_display_material().set_shader_parameter("color",color)
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
@@ -71,6 +80,7 @@ func _on_area_3d_input_event(camera: Node, event: InputEvent, event_position: Ve
 
 
 func _on_area_3d_hit(thing: Variant) -> void:
+	print_debug("hit")
 	if state == HitCubeState.IDLE:
 		state = HitCubeState.HIT
 		get_tree().call_group("ScoreKeepers","increment_current_score", 1)

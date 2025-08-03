@@ -1,8 +1,9 @@
-[gd_scene load_steps=5 format=3 uid="uid://cxjmplpluoj5i"]
+[gd_scene load_steps=6 format=3 uid="uid://cxjmplpluoj5i"]
 
 [ext_resource type="PackedScene" uid="uid://b5677vs1w7gr2" path="res://assets/models/balcony.glb" id="1_2wpim"]
 [ext_resource type="PackedScene" uid="uid://cjceeaabehf1i" path="res://scenes/things/player.tscn" id="2_i2ixo"]
 [ext_resource type="PackedScene" uid="uid://chl4ap2kno7nn" path="res://scenes/prototype/hit_cube.tscn" id="3_i2ixo"]
+[ext_resource type="PackedScene" uid="uid://c4i5oyke602dk" path="res://scenes/things/hit_triangle/hit_triangle.tscn" id="4_1xiko"]
 [ext_resource type="PackedScene" uid="uid://epl3ixu78lxh" path="res://scenes/things/doorwhatever.tscn" id="4_oox3t"]
 
 [node name="balcony_level" type="Node3D"]
@@ -82,9 +83,10 @@ transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0.9300
 size = Vector2(15, 11.455)
 hit_cubes = [NodePath("../level1 cubes/Hit Cube"), NodePath("../level1 cubes/Hit Cube2"), NodePath("../level1 cubes/Hit Cube3"), NodePath("../level1 cubes/Hit Cube5"), NodePath("../level1 cubes/Hit Cube6"), NodePath("../level1 cubes/Hit Cube6")]
 
-[node name="seperator door" parent="balcony" instance=ExtResource("4_oox3t")]
+[node name="seperator door" parent="balcony" node_paths=PackedStringArray("hit_cubes") instance=ExtResource("4_oox3t")]
 transform = Transform3D(0.997723, 0, -0.0674407, 0, 1, 0, 0.0674407, 0, 0.997723, -149.187, -1.19209e-07, 2.7312)
 size = Vector2(300, 13.11)
+hit_cubes = [NodePath("../unlock hit cube")]
 
 [node name="unlock hit cube" parent="balcony" instance=ExtResource("3_i2ixo")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -261.255, 1.38317, 0)
@@ -93,11 +95,44 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -261.255, 1.38317, 0)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -256.9, 5.52618, 1.06395)
 size = Vector3(1, 12.0524, 11.8115)
 
+[node name="section3" type="Node3D" parent="balcony"]
+
+[node name="Doorwhatever" parent="balcony/section3" node_paths=PackedStringArray("hit_cubes") instance=ExtResource("4_oox3t")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -157.154, 0.033186, 10.0906)
+size = Vector2(15.483, 11.395)
+hit_cubes = [NodePath("../../level 2 cubes/Hit Cube6"), NodePath("../../level 2 cubes/Hit Cube4")]
+
+[node name="Doorwhatever2" parent="balcony/section3" node_paths=PackedStringArray("hit_cubes") instance=ExtResource("4_oox3t")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -220.693, 0.033186, 4.96455)
+size = Vector2(15.483, 11.395)
+hit_cubes = [NodePath("../../speed triangles/hit_triangle2"), NodePath("../../speed triangles/hit_triangle"), NodePath("../../speed triangles/hit_triangle8"), NodePath("../../speed triangles/hit_triangle3"), NodePath("../../speed triangles/hit_triangle4"), NodePath("../../speed triangles/hit_triangle5")]
+
+[node name="speed triangles" type="Node3D" parent="balcony"]
+
+[node name="hit_triangle8" parent="balcony/speed triangles" instance=ExtResource("4_1xiko")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -170.856, 0.542031, 6.74141)
+time_left = 30.0
+
+[node name="hit_triangle" parent="balcony/speed triangles" instance=ExtResource("4_1xiko")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -183.592, 0.330959, 6.64214)
+
+[node name="hit_triangle2" parent="balcony/speed triangles" instance=ExtResource("4_1xiko")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -191.756, 0.265201, 6.81532)
+
+[node name="hit_triangle3" parent="balcony/speed triangles" instance=ExtResource("4_1xiko")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -198.099, 0.265201, 6.81532)
+
+[node name="hit_triangle4" parent="balcony/speed triangles" instance=ExtResource("4_1xiko")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -203.678, 0.265201, 6.81532)
+
+[node name="hit_triangle5" parent="balcony/speed triangles" instance=ExtResource("4_1xiko")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -207.987, 0.265201, 6.81532)
+
 [node name="balcony2" parent="." instance=ExtResource("1_2wpim")]
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -0.84163, -0.34243, -37.9547)
 
 [node name="Player" parent="." instance=ExtResource("2_i2ixo")]
-transform = Transform3D(-0.170708, 0, 0.985322, 0, 1, 0, -0.985322, 0, -0.170708, -2.73676, 0.910383, 17.3684)
+transform = Transform3D(-0.170708, 0, 0.985322, 0, 1, 0, -0.985322, 0, -0.170708, -165.124, 2.08543, 8.43833)
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 

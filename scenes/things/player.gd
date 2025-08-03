@@ -1,5 +1,6 @@
 extends CharacterBody3D
 
+class_name Player
 
 var SPEED = 5.0
 
